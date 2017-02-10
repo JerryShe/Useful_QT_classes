@@ -1,12 +1,12 @@
 #include "qtabswitcher.h"
 
 
-QTab::QTab(QWidget *Widget, QPushButton *Button, QString AStyle, QString UStyle)
+QTab::QTab(QWidget *Widget, QPushButton *Button, QString AStyle, QString IStyle)
 {
     widget = Widget;
     button = Button;
     activeStyle = AStyle;
-    unactiveStyle = UStyle;
+    inactiveStyle = IStyle;
     hiden = false;
 }
 
@@ -25,9 +25,9 @@ QString QTab::getActiveStyle()
     return activeStyle;
 }
 
-QString QTab::getUnactiveStyle()
+QString QTab::getInactiveStyle()
 {
-    return unactiveStyle;
+    return inactiveStyle;
 }
 
 bool QTab::isHiden()
@@ -45,10 +45,10 @@ void QTab::setWidget(QWidget* Widget)
     widget = Widget;
 }
 
-void QTab::setStyles(QString ActiveStyle, QString UnactiveStyle)
+void QTab::setStyles(QString ActiveStyle, QString InactiveStyle)
 {
     activeStyle = ActiveStyle;
-    unactiveStyle = UnactiveStyle;
+    inactiveStyle = InactiveStyle;
 }
 
 void QTab::openTab()
@@ -62,7 +62,7 @@ void QTab::openTab()
 
 void QTab::closeTab()
 {
-    button->setStyleSheet(unactiveStyle);
+    button->setStyleSheet(inactiveStyle);
     widget->hide();
 }
 
@@ -97,9 +97,9 @@ QTabSwitcher::~QTabSwitcher()
     delete SignalMapper;
 }
 
-void QTabSwitcher::addTab(QWidget *tabWidget, QPushButton *tabButton, QString activeStyle, QString unactiveStyle)
+void QTabSwitcher::addTab(QWidget *tabWidget, QPushButton *tabButton, QString activeStyle, QString inactiveStyle)
 {
-    tabList.append(new QTab(tabWidget, tabButton, activeStyle, unactiveStyle));
+    tabList.append(new QTab(tabWidget, tabButton, activeStyle, inactiveStyle));
 
     connect(tabButton, SIGNAL(clicked()), SignalMapper, SLOT(map()));
     SignalMapper->setMapping(tabButton, tabList.size() - 1);
@@ -113,22 +113,22 @@ void QTabSwitcher::addTab(QTab* tab)
     SignalMapper->setMapping(tab->getButton(), tabList.size() - 1);
 }
 
-void QTabSwitcher::setButtonStyleSheet(int tabIndex, QString ActiveStyle, QString unactiveStyle)
+void QTabSwitcher::setButtonStyleSheet(int tabIndex, QString ActiveStyle, QString inactiveStyle)
 {
     if (tabIndex < 0 || tabIndex >= tabList.size())
         return;
 
-    tabList[tabIndex]->setStyles(ActiveStyle, unactiveStyle);
+    tabList[tabIndex]->setStyles(ActiveStyle, inactiveStyle);
 }
 
-void QTabSwitcher::setButtonStyleSheet(QPushButton *tabButton, QString activeStyle, QString unactiveStyle)
+void QTabSwitcher::setButtonStyleSheet(QPushButton *tabButton, QString activeStyle, QString inactiveStyle)
 {
-    setButtonStyleSheet(indexOf(tabButton), activeStyle, unactiveStyle);
+    setButtonStyleSheet(indexOf(tabButton), activeStyle, inactiveStyle);
 }
 
-void QTabSwitcher::setButtonStyleSheet(QWidget* tabWidget, QString activeStyle, QString unactiveStyle)
+void QTabSwitcher::setButtonStyleSheet(QWidget* tabWidget, QString activeStyle, QString inactiveStyle)
 {
-    setButtonStyleSheet(indexOf(tabWidget), activeStyle, unactiveStyle);
+    setButtonStyleSheet(indexOf(tabWidget), activeStyle, inactiveStyle);
 }
 
 

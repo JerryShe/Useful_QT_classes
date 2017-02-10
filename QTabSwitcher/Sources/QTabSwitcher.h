@@ -11,17 +11,17 @@ class QTab: public QObject
 {
     Q_OBJECT
 public:
-    QTab(QWidget *Widget, QPushButton *Button, QString AStyle = QString(), QString UStyle = QString());
+    QTab(QWidget *Widget, QPushButton *Button, QString AStyle = QString(), QString IStyle = QString());
 
     QPushButton* getButton();
     QWidget* getWidget();
     QString getActiveStyle();
-    QString getUnactiveStyle();
+    QString getInactiveStyle();
     bool isHiden();
 
     void setButton(QPushButton* Button);
     void setWidget(QWidget* Widget);
-    void setStyles(QString ActiveStyle, QString UnactiveStyle = QString());
+    void setStyles(QString ActiveStyle, QString InactiveStyle = QString());
 
 public slots:
     void openTab();
@@ -33,7 +33,7 @@ private:
     QPushButton* button;
     QWidget* widget;
     QString activeStyle;
-    QString unactiveStyle;
+    QString inactiveStyle;
     bool hiden;
 };
 
@@ -49,12 +49,12 @@ public:
 
 
 public slots:
-    void addTab(QWidget* tabWidget, QPushButton* tabButton, QString activeStyle = QString(), QString unactiveStyle = QString());
+    void addTab(QWidget* tabWidget, QPushButton* tabButton, QString activeStyle = QString(), QString inactiveStyle = QString());
     void addTab(QTab* tab);
 
-    void setButtonStyleSheet(int tabIndex, QString activeStyle = QString(), QString unactiveStyle = QString());
-    void setButtonStyleSheet(QPushButton* tabButton, QString activeStyle = QString(), QString unactiveStyle = QString());
-    void setButtonStyleSheet(QWidget* tabWidget, QString activeStyle = QString(), QString unactiveStyle = QString());
+    void setButtonStyleSheet(int tabIndex, QString activeStyle = QString(), QString inactiveStyle = QString());
+    void setButtonStyleSheet(QPushButton* tabButton, QString activeStyle = QString(), QString inactiveStyle = QString());
+    void setButtonStyleSheet(QWidget* tabWidget, QString activeStyle = QString(), QString inactiveStyle = QString());
 
     void removeTab(int tabIndex);
     void removeTab(QPushButton* tabButton);
