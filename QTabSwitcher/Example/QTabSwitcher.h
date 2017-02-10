@@ -11,7 +11,7 @@ class QTab: public QObject
 {
     Q_OBJECT
 public:
-    QTab(QWidget *Widget, QPushButton *Button, QString AStyle = QString(), QString IStyle = QString());
+    QTab(QWidget *Widget, QPushButton *Button, QString ActiveStyle = QString(), QString InactiveStyle = QString());
 
     QPushButton* getButton();
     QWidget* getWidget();
