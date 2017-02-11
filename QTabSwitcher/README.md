@@ -1,7 +1,7 @@
 #QTabSwitcher
 QTabSwitcher class provides the logic to switch tabs and selection button for the currently display tab.
 
-To tab managment using the QTab class containing button's active and unactive style and pointers to tab's button and widget
+To tab managment using the QTab class containing button's active and inactive style and pointers to tab's button and widget
 <br><br><br><br>
 
 
@@ -15,7 +15,7 @@ Constructs a QTabSwitcher with the given parent.
 Destroys QTabSwitcher object, and frees any allocated resources.
 
 
-## void QTabSwitcher::addTab(QWidget* tabWidget, QPushButton* tabButton, QString activeStyle = QString(), QString unactiveStyle = QString())
+## void QTabSwitcher::addTab(QWidget* tabWidget, QPushButton* tabButton, QString activeStyle = QString(), QString inactiveStyle = QString())
 Adds a new tab under QTabSwither control.
 
 
@@ -25,56 +25,56 @@ Overloaded function.
 Adds a new tab under QTabSwither control.
 
 
-## void QTabSwitcher::setButtonStyleSheet(int tabIndex, QString activeStyle = QString(), QString unactiveStyle = QString())
-Set button active and unactive styleSheets.
+## void QTabSwitcher::setButtonStyleSheet(int tabIndex, QString activeStyle = QString(), QString inactiveStyle = QString())
+Set the button's active and inactive style sheets.
 
 
-## void QTabSwitcher::setButtonStyleSheet(QPushButton* tabButton, QString activeStyle = QString(), QString unactiveStyle = QString())
+## void QTabSwitcher::setButtonStyleSheet(QPushButton* tabButton, QString activeStyle = QString(), QString inactiveStyle = QString())
 Overloaded function.
 
-Set button active and unactive styleSheets.
+Set the button's active and inactive style sheets.
 
 
-## void QTabSwitcher::setButtonStyleSheet(QWidget* tabWidget, QString activeStyle = QString(), QString unactiveStyle = QString())
+## void QTabSwitcher::setButtonStyleSheet(QWidget* tabWidget, QString activeStyle = QString(), QString inactiveStyle = QString())
 Overloaded function.
 
-Set button active and unactive styleSheets.
+Set the button's active and inactive style sheets.
 
 
 ## void QTabSwitcher::start(int startTab = 0)
-Set first shown tab and hide other. Set current active button.
+Set first shown tab and hide the rest. Set current active button.
 
 
 ## void QTabSwitcher::start(QPushButton* startTabButton)
 Overloaded function.
 
-Set first shown tab and hide other. Set current active button.
+Set first shown tab and hide the rest. Set current active button.
 
 
 ## void QTabSwitcher::start(QWidget* startTabWidget)
 Overloaded function.
 
-Set first shown tab and hide other. Set current active button.
+Set first shown tab and hide the rest. Set current active button.
 
 
 ## void QTabSwitcher::removeTab(int tabIndex)
-Remove control over tab.
+Remove control over the tab.
 
 
 ## void QTabSwitcher::removeTab(QPushButton* tabButton)
 Overloaded function.
 
-Remove control over tab.
+Remove control over the tab.
 
 
 ## void QTabSwitcher::removeTab(QWidget* tabWidget)
 Overloaded function.
 
-Remove control over tab.
+Remove control over the tab.
 
 
 ## int QTabSwitcher::indexOf(QPushButton* tabButton)
-Return tab index by tab's button.
+Return the tab's index by tab's button.
 
 Returns -1 if no item matched.
 
@@ -82,7 +82,7 @@ Returns -1 if no item matched.
 ## int QTabSwitcher::indexOf(QWidget* tabWidget)
 Overloaded function.
 
-Return tab index by tab's widget.
+Return the tab's index by tab's widget.
 
 Returns -1 if no item matched.
 
@@ -90,41 +90,41 @@ Returns -1 if no item matched.
 ## int QTabSwitcher::indexOf(QTab* tab)
 Overloaded function.
 
-Return tab's index.
+Return the tab's index.
 
 Returns -1 if no item matched.
 
 
 ## bool QTabSwitcher::contains(QPushButton* tabButton)
-Return true if QTabSwitcher contains tab with tabButton; otherwise returns false.
+Return true if QTabSwitcher contains the tab with tabButton; otherwise returns false.
 
 
 ## bool QTabSwitcher::contains(QWidget* tabWidget)
 Overloaded function.
 
-Return true if QTabSwitcher contains tab with tabWidget; otherwise returns false.
+Return true if QTabSwitcher contains the tab with tabWidget; otherwise returns false.
 
 
 ## bool QTabSwitcher::contains(QTab* tab)
 Overloaded function.
 
-Return true if QTabSwitcher contains tab; otherwise returns false.
+Return true if QTabSwitcher contains the tab; otherwise returns false.
 
 
 ## int QTabSwitcher::getCurrentTabIndex()
-Returns index of current display tab.
+Returns index of the current display tab.
 
 
 ## QTab* QTabSwitcher::getCurrentTab()
-Returns a pointer to current display tab.
+Returns a pointer to the current display tab.
 
 
 ## QPushButton* QTabSwitcher::getCurrentButton()
-Returns a pointer to current display button.
+Returns a pointer to the current display button.
 
 
 ## QWidget* QTabSwitcher::getCurrentWidget()
-Returns a pointer to current display widget.
+Returns a pointer to the current display widget.
 
 
 ## int QTabSwitcher::getTabCount()
@@ -148,35 +148,35 @@ Set the displayed tab by tab's widget.
 
 
 ## void QTabSwitcher::deactivateTab(int index)
-Set tab deactive. Hide tab's widget and button by tab's index. This tab will not be shown.
+Set the tab deactive. Hide tab's widget and button by tab's index. This tab will not be shown.
 
 
 ## void QTabSwitcher::deactivateTab(QPushButton* tabButton)
 Overloaded function.
 
-Set tab deactive. Hide tab's widget and button by tab's button. This tab will not be shown.
+Set the tab deactive. Hide tab's widget and button by tab's button. This tab will not be shown.
 
 
 ## void QTabSwitcher::deactivateTab(QWidget* tabWidget);
 Overloaded function.
 
-Set tab deactive. Hide tab's widget and button by tab's widget. This tab will not be shown.
+Set the tab deactive. Hide tab's widget and button by tab's widget. This tab will not be shown.
 
 
 ## void QTabSwitcher::activateTab(int index)
-Set tab active. Show tab's widget and button by tab's index.
+Set the tab active. Show tab's widget and button by tab's index.
 
 
 ## void QTabSwitcher::activateTab(QPushButton* tabButton)
 Overloaded function.
 
-Set tab active. Show tab's widget and button by tab's button.
+Set the tab active. Show tab's widget and button by tab's button.
 
 
 ## void QTabSwitcher::activateTab(QWidget* tabWidget)
 Overloaded function.
 
-Set tab active. Show tab's widget and button by tab's widget.
+Set the tab active. Show tab's widget and button by tab's widget.
 
 
 ## void QTabSwitcher::clear()
@@ -193,19 +193,44 @@ Variable | description
 QPushButton* button | Pointer to tab's button.
 QWidget* widget | Pointer to tab's widget
 QString activeStyle | Active button's style sheet
-QString unactiveStyle | Inactive button's style sheet
+QString inactiveStyle | Inactive button's style sheet
 bool hiden | This property holds whether tab is shown
 
 
 # Public QTab Functions:
 
 
-## QTab(QWidget *Widget, QPushButton *Button, QString AStyle = QString(), QString IStyle = QString())
-## QPushButton* getButton()
-## QWidget* getWidget()
-## QString getActiveStyle()
-## QString getInactiveStyle()
-## bool isHiden()
-## void setButton(QPushButton* Button)
-## void setWidget(QWidget* Widget)
-## void setStyles(QString ActiveStyle, QString InactiveStyle = QString())
+## QTab::QTab(QWidget *Widget, QPushButton *Button, QString AStyle = QString(), QString IStyle = QString())
+Constructs a QTab object with the given parameters.
+
+
+## QPushButton* QTab::getButton()
+Return a pointer to the tab's button.
+
+
+## QWidget* QTab::getWidget()
+Return a pointer to the tab's widget.
+
+
+## QString QTab::getActiveStyle()
+Return the button's active style sheet. 
+
+
+## QString QTab::getInactiveStyle()
+Return the button's inactive style sheet.
+
+
+## bool QTab::isHiden()
+Return true if the tab is hiden (it's button and widget are hiden); otherwise returns false.
+
+
+## void QTab::setButton(QPushButton* Button)
+Set the button to control the tab.
+
+
+## void QTab::setWidget(QWidget* Widget)
+Set the widget inder the control.
+
+
+## void QTab::setStyles(QString ActiveStyle, QString InactiveStyle = QString())
+Set the button's active and inactive style sheets.
