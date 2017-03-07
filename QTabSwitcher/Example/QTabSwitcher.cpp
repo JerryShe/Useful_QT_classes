@@ -1,12 +1,12 @@
 #include "qtabswitcher.h"
 
 
-QTab::QTab(QWidget *Widget, QPushButton *Button, QString AStyle, QString IStyle)
+QTab::QTab(QWidget *Widget, QPushButton *Button, QString ActiveStyle, QString InactiveStyle)
 {
     widget = Widget;
     button = Button;
-    activeStyle = AStyle;
-    inactiveStyle = IStyle;
+    activeStyle = ActiveStyle;
+    inactiveStyle = InactiveStyle;
     hiden = false;
 }
 
